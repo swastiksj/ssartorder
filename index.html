@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SS Art Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<header>
+    <img src="C:\Users\Administrator\Desktop\ssartorder website\image\logo.jpg" alt="SS Art Gallery Logo">
+    <h1>SS Art Gallery</h1>
+</header>
+<body>
+    <main>
+        <div class="form-container">
+            <h2>Sketch Order Form</h2> <!-- Title placed inside the form border -->
+            <form id="orderForm" action="process_order.php" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required><br>
+                <label for="contact">Contact:</label><br>
+                <input type="text" id="contact" name="contact" required><br>
+                <label for="address">Address:</label><br>
+                <textarea id="address" name="address" required></textarea><br>
+                <label for="paperSize">Paper Size:</label><br>
+                <input type="radio" id="a4" name="paperSize" value="A4" checked>
+                <label for="a4">A4</label><br>
+                <input type="checkbox" id="frame" name="frame">
+                <label for="frame">Frame (+₹399)</label><br>
+                <label for="photo">Upload Photo:</label><br>
+                <input type="file" id="photo" name="photo" accept="image/jpeg" required><br><br>
+                <label for="paymentMethod">Payment Method:</label><br>
+                <select id="paymentMethod" name="paymentMethod" required>
+                    <option value="select-">select-</option>
+                    <option value="debitcard">Debit Card</option>
+                    <option value="googlepay">Google Pay</option>
+                    <option value="phonepe">PhonePe</option>
+                    <option value="paytm">Paytm</option>
+                    <option value="otherupi">Other UPI Apps</option>
+                </select><br><br>
+                <button type="submit" class="place-order-btn">Place Order</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        function validateForm() {
+            var name = document.getElementById('name').value;
+            var contact = document.getElementById('contact').value;
+            var address = document.getElementById('address').value;
+            var photo = document.getElementById('photo').value;
+            
+            if (name.trim() === '' || contact.trim() === '' || address.trim() === '' || photo.trim() === '') {
+                alert("Please fill out all fields.");
+                return false;
+            }
+
+            // You can add more validation rules as needed
+            
+            return true;
+        }
+    </script>
+</body>
+</html>
